@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Results</title>
+</head>
+
+<body>
+    <main>
+    <nav>
+        <div class="page-layout">
+            <p id="branding">Results Via Insta Pic</p>
+            <div class="nav-img">
+            <img src="resources/insta/resources/nav-img1.png" alt="">
+            <p>A Lalit Kumar Production</p>
+            </div>            
+        </div>    
+    </nav>    
+    
+    <section id="main-data">
+    <div class="page-layout">
+    {% for item in data %}        
+        <h2>{{ item.post_id }} ⬇️</h2>
+        {% for count in item.COUNT %}
+            <p class = "type-img"> Images: {{ count.images }}</p>
+            <p class = "type-video"> Videos: {{ count.videos }}</p>
+        {% endfor %} 
+            <div class="container">                 
+                {% for data in item.DATA %}
+                    <div class="box">
+                        <div class="photo">
+                            {{ data.Element }}
+                        </div>
+                        <li>id: {{ data.post_id }}</li>
+                        {% if "Image" in data.Type %}
+                            <li class = "type-img">Type: {{ data.Type }}</li>
+                            {% else %}
+                            <li class = "type-video">Type: {{ data.Type }}</li>
+                        {% endif %}
+                        <li>MD5: <span class="copy-text" title = "Click to copy">{{ data.MD5 }}</span></li>
+                        <a href="{{ data.File }}" download = "{{ data.MD5 }}">Download ⬇️</a>
+                    </div>    
+                {% endfor %}            
+            </div>
+            <br>
+            <br>
+    {% endfor %}
+    </div>    
+    </section>
+    </main>
+
+    <footer>
+        <p>© Copyright 2023, All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get all elements with the class name "example"
+        const a = document.getElementsByClassName("copy-text");
+
+        // Loop through each element and add a click event listener
+        for (let i = 0; i < a.length; i++) {
+        a[i].addEventListener("click", function() {
+            // Copy the text content of the clicked element to the clipboard
+            const text = this.textContent;
+            const textarea = document.createElement("textarea");
+            textarea.textContent = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            textarea.remove();
+            console.log("Copied to clipboard: " + text);
+        });
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- onclick="copyToClipboard()"  -->

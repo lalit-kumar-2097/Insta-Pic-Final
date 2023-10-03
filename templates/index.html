@@ -1,0 +1,58 @@
+
+{% block content %}
+  <form id="image-form">
+    {% csrf_token %}
+    <label for="image-urls">Enter image URLs:</label>
+    <input type="text" name="image_urls" id="image-urls">
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="image-container"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#image-form').on('submit', function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+          type: 'POST',
+          url: '',
+          data: formData,
+          success: function(data) {
+            var images = data.images;
+            var container = $('#image-container');
+            for (var i = 0; i < images.length; i++) {
+              var img = $('<img>').attr('src', 'data:image/png;base64,' + images[i]);
+              container.append(img);
+            }
+          },
+          error: function(data) {
+            console.log('Error:', data);
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Image Input</title>
+</head>
+<body>
+	<form method="post">
+		{% csrf_token %}
+		<label for="image_urls">Enter <span style="font-style: italic;"><b>post-ids</b></span> separated by commas:</label><br>
+		<input type="text" id="image_urls" name="image_urls"><br>
+		<input type="submit" value="Submit">
+		<H1>Welcome To Insta Downloader</H1>
+	</form>
+</body>
+</html> -->
+

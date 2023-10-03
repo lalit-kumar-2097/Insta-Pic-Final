@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Downloader</title>
+
+	<!-- <style>
+		.container{
+			max-width: 60%;
+			border-color: black;
+    		border-radius: 2.5px;
+			border: solid;
+			margin-bottom: inherit;
+		}
+	</style> -->
+
+    <script>
+    </script>
+
+
+</head>
+<body>
+	{% for link,post_id in links %}
+		<div class= "container">
+            <a href="{{ link }}" download="{{post_id}}" crossorigin = "anonymous"> DOWNLOAD IMAGE
+                <img src="{{ link }}" crossorigin = "anonymous" width=""104 height="142"> 
+            </a>
+		</div>
+	{% endfor %}
+</body>
+</html>
+
+
+
+
+

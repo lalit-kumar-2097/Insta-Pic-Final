@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show Images</title>
+
+	<style>
+		.container{
+			max-width: 60%;
+			border-color: black;
+    		border-radius: 2.5px;
+			border: solid;
+			margin-bottom: inherit;
+		}
+	</style>
+
+
+</head>
+<body>
+	{% for image_url, serial_no in image_list %}
+		<div class= "container">
+			<img src="{{ image_url }}" height="350" width="auto" alignment="center"><br>
+			<p>{{ image_url }}</p>
+			<p>{{ serial_no }}</p>
+		</div>
+	{% endfor %}
+</body>
+</html>
+
+
+
+

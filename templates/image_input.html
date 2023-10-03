@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Input</title>
+</head>
+<body>
+	<form method="post">
+		{% csrf_token %}
+		<label for="image_urls">Enter image URLs separated by commas:</label><br>
+		<input type="text" id="image_urls" name="image_urls"><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

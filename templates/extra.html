@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Impress My Girlfriend</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Global styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Paragraph styles */
+p {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Button styles */
+button {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff69b4;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+/* Button hover styles */
+button:hover {
+  background-color: #ff3385;
+}
+    </style>
+
+  </head>
+  <body>
+    <h1>Impress My Girlfriend</h1>
+    <p>Hello, world!</p>
+    <button> Click Me</button>
+    <script>
+        // Select the button element
+        const button = document.querySelector('button');
+
+        // Add a click event listener to the button
+        button.addEventListener('click', function() {
+        // Change the text of the paragraph element
+        const paragraph = document.querySelector('p');
+        paragraph.textContent = 'You are the love of my life!';
+        });
+    </script>
+  </body>
+</html>

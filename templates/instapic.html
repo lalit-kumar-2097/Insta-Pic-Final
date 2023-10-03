@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Insta Downloader</title>
+</head>
+<body>
+    <main>
+    <nav>
+        <div class="page-layout">
+            <p id="branding">Welcome To Insta Pic</p>
+        </div>    
+    </nav>        
+    <section id= main-content>
+        <div class="page-layout">
+        <form method="post" style="padding-top: 20px">
+            {% csrf_token %}
+            <label for="instapic">Enter instagram's post ids separated by comma "," and without "/":</label><br>
+            <!-- <input type="text" id="instapic" name="instapic"><br> -->
+            <textarea name="instapic" id="instapic" cols="40" rows="10"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+
+        <button id=""></button>
+        </div>
+    </section>
+    </main>
+
+
+
+    <footer>
+        <p>Copyright 2023, All rights reserved.</p>
+    </footer>
+</body>
+</html>

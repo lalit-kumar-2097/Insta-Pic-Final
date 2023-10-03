@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+    <div class="page-layout">
+        <h1>DATA CHECK</h1>
+    </div>    
+    </header>    
+    <section id="main-data">
+    <div class="page-layout">
+    
+    
+    <div class="container">    
+    {% for item in data%}
+    <!-- <p> Post Id: {{ item.post_id}} </p> <br>     -->
+    <div class="box">
+            <div class="photo">
+                <!-- <img src="{{ item.DATA.File }}"  alt=""> -->
+                <!-- <video src="{{ item.DATA.File }}"></video> -->
+                {{item.DATA.Element}}
+            </div>
+        <li> Post Id: {{ item.post_id}}</li>
+        <li>Type: {{ item.DATA.Type }}</li>
+        <li>MD5: {{ item.DATA.MD5 }}</li>
+        <a href="{{ item.DATA.File }}" download="{{ item.DATA.MD5 }}"> <p> Download</p></a>        
+    </div>        
+    {% endfor %}
+    </div>    
+    </section>
+
+
+</body>
+</html>
